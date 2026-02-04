@@ -1,12 +1,11 @@
-# BagCheck
-The ultimate modern expense tracker. Now features dual Weekly/Monthly budgeting, dynamic reality check visuals, and detailed analytics. Built with HTML, CSS, JS.
-# BagCheck 💸 
+
+BagCheck 💸 
 
 > **Secure the bag, don't fumble it.**
 
 **BagCheck** is a smart, interactive expense tracker designed to keep your finances in check without being boring. 
 
-It features a **Dynamic "Cooked" Meter** that changes the entire app's color based on how much you've spent, and now includes **Dual Budgeting** so you can track your spending for the week *and* the month separately.
+It features a Dynamic Cooked Meter that changes the entire app's color based on how much you've spent, and now includes **Dual Budgeting** so you can track your spending for the week *and* the month separately.
 
 ## 🌟 New Features in Pro Edition
 
