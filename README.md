@@ -1,6 +1,8 @@
 
 BagCheck 💸 
 
+Live:https://bag-check-chi.vercel.app/
+
 > **Secure the bag, don't fumble it.**
 
 **BagCheck** is a smart, interactive expense tracker designed to keep your finances in check without being boring. 
