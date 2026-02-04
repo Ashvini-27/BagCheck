@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BagCheck | Pro Edition</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+    <div class="bg-overlay" id="dynamic-bg"></div>
+
+    <div class="dashboard-container">
+        
+        <aside class="controls-panel">
+            <header>
+                <h1>BagCheck 💸</h1>
+                <p>Secure the bag. Weekly & Monthly.</p>
+            </header>
+
+            <div class="card budget-setter">
+                <div class="view-selector">
+                    <label>View Mode:</label>
+                    <select id="view-mode" onchange="switchViewMode()">
+                        <option value="monthly">📅 This Month</option>
+                        <option value="weekly">📆 This Week</option>
+                    </select>
+                </div>
+                
+                <label id="budget-label" style="margin-top:10px; display:block;">Monthly Limit (₹)</label>
+                <div class="input-group">
+                    <input type="number" id="budget-input" placeholder="Set limit..." onchange="updateBudget()">
+                    <button class="btn-icon" onclick="updateBudget()"><i class="fas fa-check"></i></button>
+                </div>
+            </div>
+
+            <div class="card add-form">
+                <h3>New Transaction</h3>
+                <form id="expense-form">
+                    <div class="form-group">
+                        <label>Vibe (Description)</label>
+                        <input type="text" id="text" placeholder="e.g. Momos..." required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Amount (₹)</label>
+                        <input type="number" id="amount" placeholder="0" required>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Category</label>
+                            <select id="category">
+                                <option value="Food">🍔 Food</option>
+                                <option value="Travel">🚕 Travel</option>
+                                <option value="Bills">⚡ Bills</option>
+                                <option value="Ent">🎬 Ent.</option>
+                                <option value="Other">👻 Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Date</label>
+                            <input type="date" id="date" required>
+                        </div>
+                    </div>
+
+                    <button class="btn-main">Add to List 🚀</button>
+                </form>
+            </div>
+            
+            <div id="advice-box" class="card advice-card neutral">
+                <i class="fas fa-robot"></i>
+                <p id="advice-text">Set a budget to see if you're cooked.</p>
+            </div>
+        </aside>
+
+        <main class="stats-panel">
+            
+            <div class="stats-grid">
+                <div class="stat-box">
+                    <small id="spent-title">Spent This Month</small>
+                    <h2 id="total-spent">₹0</h2>
+                </div>
+                <div class="stat-box">
+                    <small>Remaining</small>
+                    <h2 id="balance-left">₹0</h2>
+                </div>
+                <div class="stat-box progress-box">
+                    <small>Budget Used</small>
+                    <div class="progress-bar">
+                        <div id="progress-fill" class="fill"></div>
+                    </div>
+                    <span id="percentage-text">0%</span>
+                </div>
+            </div>
+
+            <div class="chart-wrapper">
+                <canvas id="expenseChart"></canvas>
+            </div>
+
+            <div class="filter-tabs">
+                <button class="filter-btn active" onclick="filterList('All')">All</button>
+                <button class="filter-btn" onclick="filterList('Food')">Food</button>
+                <button class="filter-btn" onclick="filterList('Travel')">Travel</button>
+                <button class="filter-btn" onclick="filterList('Bills')">Bills</button>
+                <button class="filter-btn" onclick="filterList('Ent')">Ent.</button>
+            </div>
+
+            <div class="history-container">
+                <ul id="list" class="transaction-list"></ul>
+            </div>
+            
+            <div class="bottom-actions">
+                <button class="action-btn export" onclick="exportCSV()">Download Receipt 🧾</button>
+                <button class="action-btn clear" onclick="clearAll()">Reset All 🗑️</button>
+            </div>
+
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
